@@ -1,11 +1,5 @@
 #  SQL Database Agent
 
-![Project Banner](https://via.placeholder.com/1200x400?text=LangChain+%2B+LangGraph+SQL+Chat)
-
-🔹 **Interact with your SQL database using AI-powered chat!** 🔹
-
----
-
 ## 📽️ Video Demo
 [![Watch the Video](https://img.youtube.com/vi/your_video_id/maxresdefault.jpg)](https://www.youtube.com/watch?v=your_video_id)
 
