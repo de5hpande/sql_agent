@@ -12,8 +12,8 @@ from langgraph.graph import StateGraph  # Corrected import
 from typing import TypedDict
 import pymysql
 
-st.set_page_config(page_title="SQL Database AI Agent", page_icon="\U0001f9a4")
-st.title("\U0001f9a4 SQL Database AI Agent")
+st.set_page_config(page_title="LangChain + LangGraph: Chat with SQL DB", page_icon="\U0001f9a4")
+st.title("\U0001f9a4 LangChain + LangGraph: Chat with SQL DB")
 
 api_key = st.sidebar.text_input(label="OpenAI API Key", type="password")
 
