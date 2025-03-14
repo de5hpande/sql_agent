@@ -33,8 +33,8 @@ else:
     mysql_host = mysql_user = mysql_password = mysql_db = None
     db_file = st.sidebar.file_uploader("Upload SQLite Database File", type=["db", "sqlite"])
 
-if not api_key:
-    st.info("Please add the OpenAI API Key")
+if not groq_api_key:
+    st.info("Please add the Groq API Key")
     st.stop()
 
 if db_uri == "SQLITE" and not db_file:
