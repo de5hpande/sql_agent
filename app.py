@@ -16,7 +16,7 @@ import pymysql
 st.set_page_config(page_title="SQL Database AI Agent", page_icon="\U0001f9a4")
 st.title("\U0001f9a4 SQL Database AI Agent")
 
-api_key = st.sidebar.text_input(label="Groq API Key", type="password")
+groq_api_key = st.sidebar.text_input(label="Groq API Key", type="password")
 
 radio_opt = ["Use SQLite Database - Upload File", "Connect to your MySQL Database"]
 selected_opt = st.sidebar.radio(label="Choose the DB you want to chat with", options=radio_opt)
