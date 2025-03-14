@@ -44,7 +44,7 @@ if db_uri == "SQLITE" and not db_file:
 ## LLM model
 # llm = ChatOpenAI(api_key=api_key, model_name="gpt-4", streaming=True)
 llm = ChatGroq(
-    api_key=groq_api_key,model=Qwen-2.5-32b,streaming=True
+    api_key=groq_api_key,model="Qwen-2.5-32b",streaming=True
 )
 
 @st.cache_resource(ttl="2h")
