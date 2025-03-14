@@ -8,7 +8,7 @@ from langchain.callbacks import StreamlitCallbackHandler
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from sqlalchemy import create_engine
 import sqlite3
-# from langchain_openai import ChatOpenAI  # Updated to use OpenAI API
+from langchain_openai import ChatOpenAI  # Updated to use OpenAI API
 from langgraph.graph import StateGraph  # Corrected import
 from typing import TypedDict
 import pymysql
@@ -16,7 +16,7 @@ import pymysql
 st.set_page_config(page_title="SQL Database AI Agent", page_icon="\U0001f9a4")
 st.title("\U0001f9a4 SQL Database AI Agent")
 
-groq_api_key = st.sidebar.text_input(label="Groq API Key", type="password")
+api_key = st.sidebar.text_input(label="OpenAI API Key", type="password")
 
 radio_opt = ["Use SQLite Database - Upload File", "Connect to your MySQL Database"]
 selected_opt = st.sidebar.radio(label="Choose the DB you want to chat with", options=radio_opt)
@@ -33,7 +33,7 @@ else:
     mysql_host = mysql_user = mysql_password = mysql_db = None
     db_file = st.sidebar.file_uploader("Upload SQLite Database File", type=["db", "sqlite"])
 
-if not groq_api_key:
+if not api_key:
     st.info("Please add the Groq API Key")
     st.stop()
 
@@ -42,10 +42,7 @@ if db_uri == "SQLITE" and not db_file:
     st.stop()
 
 ## LLM model
-# llm = ChatOpenAI(api_key=api_key, model_name="gpt-4", streaming=True)
-llm = ChatGroq(
-    api_key=groq_api_key,model="Qwen-2.5-32b",streaming=True
-)
+llm = ChatOpenAI(api_key=api_key, model_name="gpt-4", streaming=True)
 
 @st.cache_resource(ttl="2h")
 def configure_db(db_uri, db_file=None, mysql_host=None, mysql_user=None, mysql_password=None, mysql_db=None):
